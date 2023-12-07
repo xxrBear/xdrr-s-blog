@@ -1,0 +1,149 @@
+baseURL: https://www.xxrbear.cn # 绑定的域名
+languageCode: zh-cn # en-us
+title: My's Blog
+theme: hugo-PaperMod # 主题名字，和themes文件夹下的一致
+
+enableInlineShortcodes: true
+enableEmoji: true # 允许使用 Emoji 表情，建议 true
+enableRobotsTXT: true # 允许爬虫抓取到搜索引擎，建议 true
+
+hasCJKLanguage: true # 自动检测是否包含 中文日文韩文 如果文章中使用了很多中文引号的话可以开启
+
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+#googleAnalytics: UA-123-45 # 谷歌统计
+# Copyright: Sulv
+
+paginate: 15    # 首页每页显示的文章数
+
+minify:
+    disableXML: true
+    # minifyOutput: true
+
+permalinks:
+  post: "/:title/"
+  # post: "/:year/:month/:day/:title/"
+
+# defaultContentLanguage: en # 最顶部首先展示的语言页面
+# defaultContentLanguageInSubdir: true
+
+languages:
+    en:
+      languageName: "English"
+      # contentDir: content/english
+      weight: 1
+      profileMode:
+        enabled: true
+        title: 合抱之木 生于毫末
+        imageUrl: "dog.jpg"
+        imageTitle: 
+        imageWidth: 150
+        imageHeight: 150
+        buttons:
+          - name: 技术
+            url: posts/tech
+          - name: 阅读
+            url: posts/read
+          - name: 生活
+            url: posts/life
+      menu:
+        main:
+          - identifier: search
+            name: 🔍搜索
+            url: search
+            weight: 1
+          - identifier: home
+            name: 🏠主页
+            url: /
+            weight: 2
+          - identifier: posts
+            name: 📖文章
+            url: posts
+            weight: 3
+          - identifier: tags
+            name: 🔖标签
+            url: tags
+            weight: 40
+          - identifier: about
+            name: 🙋🏻‍♂️关于
+            url: about
+            weight: 50
+          - identifier: links
+            name: 🤝友链
+            url: links
+            weight: 60
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
+
+params:
+    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+    author: xdrr
+  
+    defaultTheme: light  # defaultTheme: light or  dark 
+    disableThemeToggle: false
+    DateFormat: "2006-01-02"
+    ShowReadingTime: true
+    # disableSpecialistPost: true
+    displayFullLangName: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: true
+    ShowCodeCopyButtons: true
+    hideFooter: true # 隐藏页脚
+    ShowWordCounts: true
+    VisitCount: true
+
+    ShowLastMod: true #显示文章更新时间
+
+    comments: true
+    
+    socialIcons:
+        - name: git
+          url: "https://github.com/xxrBear"
+        - name: email
+          url: "mailto:xxrBear@gmail.com"
+        - name: RSS
+          url: "index.xml"
+
+    assets:
+        favicon: "dog.png"
+
+    # cover:
+    #     hidden: true # hide everywhere but not in structured data
+    #     hiddenInList: true # hide on list pages and home
+    #     hiddenInSingle: true # hide on single page
+
+    fuseOpts: # 搜索配置
+      isCaseSensitive: true
+      shouldSort: true
+      location: 0
+      distance: 1000
+      threshold: 0.4
+      minMatchCharLength: 0
+      keys: [ "title", "permalink", "summary" ]
+
+    twikoo:
+      version: 1.4.11
+
+taxonomies:
+    category: categories
+    tag: tags
+    series: series
+
+markup:
+    goldmark:
+        renderer:
+            unsafe: true # HUGO 默认转义 Markdown 文件中的 HTML 代码，如需开启的话
+    highlight:
+        # anchorLineNos: true
+        codeFences: true  
+        guessSyntax: true
+        lineNos: true
+        # noClasses: false
+        # style: monokai
+        style: darcula
