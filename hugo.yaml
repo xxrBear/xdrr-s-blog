@@ -1,6 +1,6 @@
 baseURL: https://www.xxrbear.cn # 绑定的域名
 languageCode: zh-cn # en-us
-title: My's Blog
+title: 熊大如如's Blog
 theme: hugo-PaperMod # 主题名字，和themes文件夹下的一致
 
 enableInlineShortcodes: true
