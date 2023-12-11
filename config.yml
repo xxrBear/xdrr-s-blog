@@ -103,7 +103,7 @@ params:
     comments: true
     
     socialIcons:
-        - name: git
+        - name: github
           url: "https://github.com/xxrBear"
         - name: email
           url: "mailto:xxrBear@gmail.com"
