@@ -131,9 +131,9 @@ params:
       version: 1.4.11
 
 taxonomies:
-    category: categories
-    tag: tags
-    series: series
+  category: categories
+  tag: tags
+  series: series
 
 markup:
     goldmark:
