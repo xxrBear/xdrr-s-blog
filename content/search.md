@@ -1,3 +1,4 @@
 ---
+title: "search"
 layout: "search"
 ---
