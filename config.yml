@@ -42,11 +42,11 @@ languages:
         imageWidth: 150
         imageHeight: 150
         buttons:
-          - name: 技术
+          - name: 🖥️技术
             url: posts/tech
-          - name: 阅读
+          - name: 📖阅读
             url: posts/read
-          - name: 生活
+          - name: 🌏生活
             url: posts/life
       menu:
         main:
