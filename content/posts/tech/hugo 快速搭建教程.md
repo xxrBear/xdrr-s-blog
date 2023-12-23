@@ -1,5 +1,5 @@
 ---
-title: "hugo 第一篇测试文章"
+title: "hugo 快速搭建教程"
 date: 2023-12-11T14:28:07+08:00
 lastmod: 2023-12-11T14:28:07+08:00
 author: [ "熊大如如" ]
@@ -10,9 +10,9 @@ categories: # 没有分类界面可以不填写
 tags: # 标签
   - "hugo"
 description:
-  - "hugo 第一篇测试文章"
+  - "hugo 快速搭建教程"
 weight:
-slug: "hugo 第一篇测试文章"
+slug: "hugo 快速搭建教程"
 draft: false # 是否为草稿
 mermaid: true #是否开启mermaid
 showToc: false # 显示目录
