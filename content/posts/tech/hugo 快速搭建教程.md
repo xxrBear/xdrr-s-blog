@@ -24,17 +24,34 @@ subtitle: "描述"
 ---
 
 
-#### windows下载hugo
+## 1.hugo是什么
+hugo是一个go语言开发的，静态网站生成器。
+
+
+## 2.如何下载hugo
+- Windows
 ```
 winget install Hugo.Hugo.Extended
 ```
+- MacOS
+```
+brew install hugo
+```
+- Linux
+```
+sudo apt install hugo
+```
 
-#### 创建一个新的hugo项目
+## 3.创建一个新的hugo项目
 ```
 hugo new site myblog
 ```
 
-#### 启动hugo项目
-```
-hugo & hugo server
-```
+## 4.启动hugo项目
+- hugo:会在项目文件夹下生成public文件
+- hugo server:启动hugo自带的开发者服务器，可以用来预览效果
+- hugo -F --cleanDestinationDir:生成一个全新的public文件夹
+
+### 更多参考
+- [Sulv's Blog](https://www.sulvblog.cn)
+- [Hugo官方文档](https://gohugo.io/documentation/)
