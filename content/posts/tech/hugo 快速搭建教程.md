@@ -1,7 +1,8 @@
 ---
 title: "hugo 快速搭建教程"
 description: "hugo 快速搭建教程"
-date: 2023-12-11T14:28:07+08:00
+summary: "hugo 快速搭建教程"
+date: 2023-01-22T14:28:07+08:00
 lastmod: 2023-12-11T14:28:07+08:00
 author: [ "熊大如如" ]
 tags: # 标签

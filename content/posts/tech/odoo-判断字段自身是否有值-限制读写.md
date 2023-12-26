@@ -6,6 +6,7 @@ author: ["熊大如如"]
 tags: # 标签
 - "odoo"
 description: "判断odoo中的一个字段是否写入有值，如果有值则不可修改，如果没有值则可以修改"
+summary: "判断odoo中的一个字段是否写入有值，如果有值则不可修改，如果没有值则可以修改"
 weight:
 slug: ""
 draft: false # 是否为草稿
