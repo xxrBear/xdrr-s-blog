@@ -1,6 +1,6 @@
 ---
 title: "Python快问快答"
-date: 2023-2-02T20:41:19+08:00
+date: 2023-02-02T20:41:19+08:00
 lastmod: 2023-01-02T20:41:19+08:00
 author: ["熊大如如"]
 tags: # 标签
@@ -8,7 +8,6 @@ tags: # 标签
 description: ""
 weight:
 slug: ""
-summary: "python的相关简述"
 draft: false # 是否为草稿
 mermaid: true #是否开启mermaid
 showToc: false # 显示目录
