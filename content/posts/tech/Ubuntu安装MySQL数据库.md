@@ -1,7 +1,7 @@
 ---
 title: "Ubuntu安装MySQL数据库"
-date: 2023-01-05T18:01:41+08:00
-lastmod: 2023-01-05T18:01:41+08:00
+date: 2023-02-05T18:01:41+08:00
+lastmod: 2023-02-05T18:01:41+08:00
 author: ["熊大如如"]
 keywords: 
 -
@@ -53,10 +53,17 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';
 ### 5.如果忘记密码，修改密码
 
 *   修改配置文件
-    *   `sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf`
+    ```
+    sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+    ```
 *   末尾添加
-    *   `skip-grant-tables`
-    *   MySQL重启`system restart mysql`
+    ```
+    skip-grant-tables
+    ```
+*   MySQL重启
+    ```
+    system restart mysql
+    ```
 *   将旧密码置空
     *   执行mysql -u root -p登录数据库
     *   `use mysql`
