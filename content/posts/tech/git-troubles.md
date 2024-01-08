@@ -22,3 +22,10 @@ showbreadcrumbs: true #顶部显示路径
 ```
 git config --global core.quotepath false
 ```
+
+## 2.Ubuntu安装最行版本git
+```
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt update
+sudo apt install git
+```
