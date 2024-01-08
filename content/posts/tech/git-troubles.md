@@ -29,3 +29,8 @@ sudo add-apt-repository ppa:git-core/ppa
 sudo apt update
 sudo apt install git
 ```
+
+### 3.git拉取代码需要输入账户密码
+``` 
+git config --global credential.helper store
+```
