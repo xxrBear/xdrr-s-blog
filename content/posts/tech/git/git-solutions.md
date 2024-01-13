@@ -1,5 +1,5 @@
 ---
-title: "Git Troubles"
+title: "git问题与解决方案整理"
 date: 2024-01-04T19:56:09+08:00
 lastmod: 2024-01-04T19:56:09+08:00
 author: ["熊大如如"]
