@@ -42,7 +42,7 @@ name = name_list.pop()
 ```
 + 删除列表第一个数据
 ```python
-name = name_list.pop(1)
+name = name_list.pop(0)
 ```
 
 ### 3.列表实现先进先出队列
