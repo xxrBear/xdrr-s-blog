@@ -17,7 +17,7 @@ hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等
 disableShare: true # 底部不显示分享栏
 showbreadcrumbs: true #顶部显示路径
 cover:
-    image: "https://raw.githubusercontent.com/xxrBear/image/master/Hugo202401131124538.png"
+    image: "https://cdn.jsdelivr.net/gh/xxrBear/image/Hugo202401131124538.png"
 ---
 
 
@@ -197,7 +197,7 @@ nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
 nginx: configuration file /etc/nginx/nginx.conf test is successful 
 ```
 ### 5.预览效果
-![我的个人博客](https://raw.githubusercontent.com/xxrBear/image/master/Hugo202401131124538.png)
+![我的个人博客](https://cdn.jsdelivr.net/gh/xxrBear/image/Hugo202401131124538.png)
 </details>
 
 
