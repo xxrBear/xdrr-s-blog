@@ -6,7 +6,7 @@ author: ["熊大如如"]
 keywords: 
 - 
 tags: # 标签
-    - "linux"
+    - "git"
 description: ""
 weight:
 slug: ""
@@ -75,7 +75,16 @@ sudo vim /etc/hosts
 185.199.108.133               media.githubusercontent.com
 ```
 
-### 5.再次拉取代码
+### 5.尝试ping GitHub网站
+```text
+ping github.com
+PING github.com (140.82.114.4) 56(84) bytes of data.
+64 bytes from github.com (140.82.114.4): icmp_seq=1 ttl=45 time=188 ms
+64 bytes from github.com (140.82.114.4): icmp_seq=2 ttl=45 time=188 ms
+```
+**可以ping通**
+
+### 6.再次拉取代码
 ```text
 git pull origin master
 From https://github.com/xxrBear/blog
@@ -84,13 +93,3 @@ Already up to date.
 
 ```
 **成功拉到代码**
-
-
-### 6.尝试ping GitHub网站
-```text
-ping github.com
-PING github.com (140.82.114.4) 56(84) bytes of data.
-64 bytes from github.com (140.82.114.4): icmp_seq=1 ttl=45 time=188 ms
-64 bytes from github.com (140.82.114.4): icmp_seq=2 ttl=45 time=188 ms
-```
-**可以ping通**
