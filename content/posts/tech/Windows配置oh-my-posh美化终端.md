@@ -6,7 +6,7 @@ author: ["熊大如如"]
 description: ""
 weight:
 slug: ""
-summary: ""
+summary: "Windows 配置 Oh My Posh 美化终端的步骤"
 draft: false # 是否为草稿
 mermaid: true #是否开启mermaid
 showToc: true # 显示目录
