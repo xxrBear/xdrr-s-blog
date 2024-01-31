@@ -17,14 +17,14 @@ cover:
 ---
 
 
-### 添加文件
+### 一、添加文件
 ```shell
 # 添加当前文件夹下的所有文件
 git add .
 
 ```
 
-### 提交
+### 二、提交
 ```shell
 # 提交消息到仓库区
 git commit -m ''
@@ -34,7 +34,7 @@ git commit --amend
 
 ```
 
-### 分支
+### 三、分支
 ```shell
 # 新建一个分支
 git branch [new_branch]
@@ -57,7 +57,7 @@ git branch
 
 ```
 
-### 远程分支
+### 四、远程分支
 ```shell
 # 列出远程所有分支
 git branch -r
@@ -67,21 +67,21 @@ git switch -c [branch] origin/[branch]
 
 ```
 
-### 日志
+### 五、日志
 ```shell
 # 查看所有提交信息
 git log
 
 ```
 
-### 追责
+### 六、追责
 ```shell
 # 查看文件每行的提交信息
 git blame [file]
 
 ```
 
-### 暂存
+### 七、暂存
 ```shell
 # 暂存当前分支的修改
 git stash
@@ -100,7 +100,7 @@ git stash clear
 
 ```
 
-### 差异
+### 八、差异
 ```shell
 # 查看工作区与暂存区的差异
 git diff
@@ -109,7 +109,7 @@ git diff
 git diff --cached
 ```
 
-### 远程同步
+### 九、远程同步
 ```shell
 # 拉取远程分支的提交
 git pull origin [branch]
