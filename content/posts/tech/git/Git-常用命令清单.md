@@ -22,6 +22,9 @@ cover:
 # 添加当前文件夹下的所有文件
 git add .
 
+# 添加修改的文件，不包括新增的文件
+git add -u
+
 ```
 
 ### 二、提交
@@ -40,7 +43,6 @@ git commit --amend
 git branch [new_branch]
 
 # 新建一个分支并切换到这个新分支
-git checkout -b [new]
 git switch -c [new]
 
 # 删除分支
@@ -72,6 +74,11 @@ git switch -c [branch] origin/[branch]
 # 查看所有提交信息
 git log
 
+# 用户名为组显示提交记录
+git shortlog
+
+# 各用户提交数量，降序排列
+git shortlog -n -s
 ```
 
 ### 六、追责
@@ -123,3 +130,101 @@ git remote add [shortname] [url]
 
 ```
 
+### 十、克隆
+```shell
+# 克隆一个远程仓库(默认主分支)
+git clone [url]
+
+# 克隆一个远程仓库，自定义分支
+git clone -b [branch] [url]
+
+# 克隆一个远程仓库，只保留最后一次提交
+git clone --depth=1 [url]
+
+```
+
+### 十一、配置
+```shell
+# git配置文件位置
+Git/etc/config     # system
+vim ~/.gitconfig   # global
+vim .git/config    # local
+
+# 设置用户名邮箱
+git config [--global] user.name yourname
+git config [--global] user.email youremail
+
+# 设置别名
+git config [--global] alias.st status
+
+# 取消别名
+git config [--global] --unset alias.st
+
+```
+
+### 十二、文件移动与重命名
+```shell
+# 移动
+git mv file dir/
+
+# file1重命名为file2
+git mv file1 file2
+
+```
+
+### 十三、文件删除
+```shell
+# 删除文件并添加至索引区
+git rm [file]
+
+# 删除文件并将文件设置为未追踪
+git rm --cached [file]
+
+```
+
+### 十四、文件撤销
+```shell
+# 暂存区的文件撤销到工作区
+git restore --staged [file]
+
+# 工作区的文件撤销到仓库区(丢弃修改)
+# (此命令对暂存区的文件不生效)
+git restore [file]
+
+```
+
+### 十五、版本回退
+```shell
+# 回退操作
+git reset [mode] [commit]
+
+# 回退到指定版本，修改还在暂存区
+git reset --staged [commit]
+
+# 回退到指定提交，修改还在工作区
+git reset [commit]
+
+# 回退到指定提交，三区一致
+git reset --hard [commit]
+
+```
+
+### 十六、状态
+```shell
+# 查看三区状态
+git status
+
+```
+
+### 十七、子模块
+```shell
+# 添加子模块到指定文件夹
+git submodule add [url] [dir]
+
+```
+
+### 十八、变基
+```shell
+# 不会
+
+```
