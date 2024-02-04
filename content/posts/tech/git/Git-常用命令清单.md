@@ -45,6 +45,9 @@ git branch [new_branch]
 # 新建一个分支并切换到这个新分支
 git switch -c [new]
 
+# 新建一个空分支
+git switch --orphan [branch]
+
 # 删除分支
 git branch -d [branch]
 
@@ -93,6 +96,9 @@ git blame [file]
 # 暂存当前分支的修改
 git stash
 
+# 暂存当前分支的修改，包括未追踪文件
+git stash -u
+
 # 将最后一次暂存，应用到当前分支
 git stash apply
 
@@ -114,6 +120,7 @@ git diff
 
 # 查看暂存区的差异
 git diff --cached
+
 ```
 
 ### 九、远程同步
@@ -136,10 +143,13 @@ git remote add [shortname] [url]
 git clone [url]
 
 # 克隆一个远程仓库，自定义分支
-git clone -b [branch] [url]
+git clone [url] -b [branch] [url]
 
 # 克隆一个远程仓库，只保留最后一次提交
-git clone --depth=1 [url]
+git clone [url] --depth=1 [url]
+
+# 克隆一个远程仓库，包括子模块
+git clone [url] --recurse-submodules
 
 ```
 
@@ -228,3 +238,9 @@ git submodule add [url] [dir]
 # 不会
 
 ```
+
+### 十九、标签
+```shell
+
+```
+
