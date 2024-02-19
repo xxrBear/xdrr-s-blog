@@ -241,6 +241,17 @@ git submodule add [url] [dir]
 
 ### 十九、标签
 ```shell
+# 增加标签
+git tag [name]
+
+# 删除标签
+git tag -d [name]
+
+# 修改标签名字
+mv .git/refs/tags/1.9.1 .git/refs/tags/v1.9.1
+
+# 列出所有标签
+git tag
 
 ```
 
