@@ -235,7 +235,11 @@ git submodule add [url] [dir]
 
 ### 十八、变基
 ```shell
-# 不会
+# 将代码变基到指定分支
+git rebase [branch]
+
+# 交互式变基
+git rebase -i HEAD~num
 
 ```
 
@@ -255,3 +259,12 @@ git tag
 
 ```
 
+### 二十、挑选提交
+```shell
+# 挑选指定的提交
+git cherry-pick [commit]
+
+# 挑选指定的多个提交
+git cherry-pick [commit1] [commit2]
+
+```
