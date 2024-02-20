@@ -97,7 +97,6 @@ def mapped(self, func):
 from operator import itemgetter
 
 f = itemgetter(2)
-此时，调用f(r)等于调用r(2)
 ```
 
 **此时，调用f(r)等于调用r(2)**
@@ -106,23 +105,22 @@ f = itemgetter(2)
 
 ### 4.代码解析
 
-*   当参数是字符串时
+#### 当参数是字符串时
 
-a.对参数字符串进行循环处理，然后使用`_mapped_func`函数处理参数
+- 对参数字符串进行切片，然后使用`_mapped_func`函数循环处理参数
 
-b.在`_mapped_func`函数中，列表推导式中对resc对象也就是self对象循环调用 func(rec)
+- 在`_mapped_func`函数中，列表推导式中对resc对象也就是self对象循环调用 `func(rec)`。
+假设你写的是`mapped('name')`，那么在此时，就会遍历`self`对象，获取`name`属性，类似于 `self.__getitem__['name']`, 而不是`func('name')`
 
-假设你写的是`mapped('name')`，那么在此时，就会遍历self对象，获取name属性，而不是func('name')，前面已经说过，这是从\_\_getitem\_\_方法中取值。
+- 当你写的参数取出来的值是`BaseModel`的实例时，遍历`self`对象，最后获取所有的实例对象并返回，这就是为什么写关联字段的值，得到关联对象集合的原因。
 
-c.当你写的参数取出来的值是BaseModel的实例时，遍历self对象，最后获取所有的实例对象并返回，这就是为什么写关联字段的值，得到关联对象集合的原因。
+#### 当参数不是字符串的时候
 
-*   当参数不是字符串的时候
+- 直接对`func`参数，调用`_mapped_func`方法
 
-a.直接对func参数，调用`_mapped_func`方法
+- 对`self`对象进行循环处理，最后还是返回列表或者对象集
 
-b.对self对象进行循环处理，最后还是返回列表或者对象集
-
-*   当非实例对象调用时
+#### 当非实例对象调用时
 
 非实例对象调用时，例如 类对象
 
