@@ -4,7 +4,7 @@ date: 2023-02-08T17:13:42+08:00
 lastmod: 2023-02-08T17:13:42+08:00
 author: ["熊大如如"]
 tags: # 标签
-  - "Python"
+  - "python"
 description: ""
 weight:
 slug: ""

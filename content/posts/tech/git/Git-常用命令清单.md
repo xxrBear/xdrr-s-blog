@@ -4,6 +4,8 @@ date: 2024-01-31T13:10:22+08:00
 lastmod: 2024-01-31T13:10:22+08:00
 author: ["熊大如如"]
 slug: ""
+tags:
+  - "git"
 summary: "Git 常用命令清单"
 draft: false # 是否为草稿
 mermaid: true #是否开启mermaid
