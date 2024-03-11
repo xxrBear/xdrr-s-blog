@@ -6,7 +6,7 @@ author: ["熊大如如"]
 keywords: 
 -
 tags: # 标签
-- "MySQL"
+    ["MySQL", "linux"]
 description: ""
 weight:
 slug: ""

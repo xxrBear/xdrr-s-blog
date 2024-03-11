@@ -4,6 +4,8 @@ date: 2024-02-02T15:29:04+08:00
 lastmod: 2024-02-02T15:29:04+08:00
 author: ["熊大如如"]
 description: ""
+tags:
+  - "navicat"
 weight:
 slug: ""
 summary: "试用 Navicat 16"

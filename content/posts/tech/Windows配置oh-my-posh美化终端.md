@@ -4,7 +4,8 @@ date: 2024-01-30T15:49:07+08:00
 lastmod: 2024-01-30T15:49:07+08:00
 author: ["熊大如如"]
 description: ""
-weight:
+tags:
+  - "shell"
 slug: ""
 summary: "Windows 配置 Oh My Posh 美化终端的步骤"
 draft: false # 是否为草稿
