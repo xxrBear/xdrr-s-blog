@@ -1,6 +1,9 @@
-## 快速启动
+## 简介
+一个hugo搭建的个人博客网站，记录了自己的一点点学习经历...
 
-### 1.安装Hugo(MacOS)
+## 快速启动-基于MacOS
+
+### 1.安装Hugo
 + `brew install hugo`
 
 ### 2.下载blog源码
