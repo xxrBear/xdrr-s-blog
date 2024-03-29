@@ -8,7 +8,7 @@ keywords:
 categories: # 分类
 - # 在这儿写分类
 tags: # 标签
-- ["django"]
+- "django"
 description: ""
 weight:
 slug: ""
