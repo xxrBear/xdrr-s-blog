@@ -14,8 +14,6 @@ TocOpen: true # 自动展开目录
 hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等
 disableShare: true # 底部不显示分享栏
 showbreadcrumbs: true #顶部显示路径
-cover:
-    image: "https://cdn.jsdelivr.net/gh/xxrBear/image/202401311328129.png"  # 文章的图片
 ---
 
 
@@ -145,10 +143,10 @@ git remote add [shortname] [url]
 git clone [url]
 
 # 克隆一个远程仓库，自定义分支
-git clone [url] -b [branch] [url]
+git clone -b [branch] [url]
 
 # 克隆一个远程仓库，只保留最后一次提交
-git clone [url] --depth=1 [url]
+git clone --depth=1 [url]
 
 # 克隆一个远程仓库，包括子模块
 git clone [url] --recurse-submodules

@@ -1,5 +1,5 @@
 ---
-title: "Python单元测试框架unittest"
+title: "Python单元测试库unittest"
 date: 2024-04-25T11:44:00+08:00
 lastmod: 2024-04-25T11:44:00+08:00
 author: ["熊大如如"]
@@ -28,7 +28,7 @@ showbreadcrumbs: true #顶部显示路径
 ## 2.为什么要单元测试
 可以帮我们尽早发现问题，定位问题，解决问题。
 
-## 3.unittest入门
+## 3.快速开始unittest
 - 一个函数
 ```python
 def add(x, y):
