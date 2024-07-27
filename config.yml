@@ -91,7 +91,7 @@ params:
     ShowPostNavLinks: true
     ShowBreadCrumbs: true
     ShowCodeCopyButtons: true
-    hideFooter: true # 隐藏页脚
+    hideFooter: false # 隐藏页脚
     ShowWordCounts: true
     VisitCount: true
 
