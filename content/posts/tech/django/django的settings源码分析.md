@@ -43,23 +43,22 @@ cover:
 
 简单来说，__dict__方法记录着类的属性字典。当使用`.`运算符时，首先会从类的属性字典里取值，即：
 
-```python
-self.xxx取得 self.__dict__['xxx']的值
-```
+
+    self.xxx取得 self.__dict__['xxx']的值
+
 
 当__dict__没有取到属性值时会运行到__getattr__方法内取属性值。
 
 举例：
-```python
-class Animal:
-    def __getattr__(self, attr):
-        return 'xxx'
 
-a = Animal()
-a.xxx
-
-'xxx'
-```
+    class Animal:
+        def __getattr__(self, attr):
+            return 'xxx'
+    
+    a = Animal()
+    a.xxx
+    
+    'xxx'
 
 ### 4.LazySettings类的作用
 [LazySettings源码](https://github.com/xxrBear/django-chinese-annotation/blob/master/django/conf/__init__.py)
