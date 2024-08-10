@@ -25,7 +25,7 @@ cover:
 ---
 
 ### 1.配置类的继承关系
-<div style="text-alient: center">
+<div>
 <img src="https://cdn.jsdelivr.net/gh/xxrBear/image/202403291342737.png" alt="example" style="width: 180px; height: auto;">
 </div>
 
@@ -67,9 +67,7 @@ cover:
 
 查看一下这个方法，你会发现，他从`self._wrapped`中获取属性，也就是从`Settings`类中获取属性，然后会将属性写入`__dict__`方法中，也就是说，下次获取属性会直接从`LazySettings`类的`__dict__`中直接获取属性，避免了每次加载配置文件，减少了内存开销。
 
-### 5.问题
-
-**问：Django为什么不直接从Settings中获取属性，而是从LazySettings中获取属性**
+### 5.Django为什么从LazySettings中获取属性
 
 Django 使用 LazySettings 类来延迟加载设置属性的值的主要原因是为了在设置加载过程中提供更大的灵活性和可定制性。
 
