@@ -5,7 +5,7 @@ lastmod: 2024-09-12T16:07:26+08:00
 author: ["熊大如如"]
 tags: # 标签
   - ["tmux", "Linux"]
-summary: ""
+summary: "tmux 快速入门指南"
 draft: false # 是否为草稿
 mermaid: true #是否开启mermaid
 showToc: true # 显示目录
