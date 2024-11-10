@@ -145,3 +145,19 @@
 .terms-tags li {
     margin: 5px;
 }
+
+body {
+    font-family: "Ma Shan Zheng", cursive;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+
+.post-content pre,
+code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13;
+  line-height: 1.2;
+  max-height: 40rem;
+}
