@@ -41,9 +41,9 @@ Docker 分为社区版和企业版，个人用户安装社区版即可。
 
     运行以下命令卸载旧版 Docker：
 
-    ```shell
-    apt-get remove docker docker-engine docker.io containerd runc
-    ```
+```shell
+apt-get remove docker docker-engine docker.io containerd runc
+```
 
 ## 四、Docker 的简单使用
 
