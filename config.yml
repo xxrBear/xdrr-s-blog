@@ -17,11 +17,11 @@ buildExpired: false
 #googleAnalytics: UA-123-45 # 谷歌统计
 # Copyright: Sulv
 
-paginate: 10    # 首页每页显示的文章数
+paginate: 10 # 首页每页显示的文章数
 
 minify:
-    disableXML: true
-    # minifyOutput: true
+  disableXML: true
+  # minifyOutput: true
 
 permalinks:
   post: "/:title/"
@@ -31,101 +31,101 @@ permalinks:
 # defaultContentLanguageInSubdir: true
 
 languages:
-    zh:
-      languageName: "Chinese"
-      # contentDir: content/english
-      weight: 1
-      profileMode:
-        enabled: true
-        title: 合抱之木 生于毫末
-        imageUrl: "dog.jpg"
-        imageTitle: 
-        imageWidth: 150
-        imageHeight: 150
-        buttons:
-          - name: 🖥️技术
-            url: posts/tech
-          - name: 📖阅读
-            url: posts/read
-          - name: 🌏生活
-            url: posts/life
-      menu:
-        main:
-          - identifier: search
-            name: 🔍搜索
-            url: search
-            weight: 1
-          - identifier: home
-            name: 🏠主页
-            url: /
-            weight: 2
-          - identifier: tags
-            name: 🔖标签
-            url: tags
-            weight: 40
-          - identifier: archives
-            name: ⏱️ 时间轴
-            url: archives/
-            weight: 20
-          - identifier: about
-            name: 🌟关于
-            url: about
-            weight: 50
+  zh:
+    languageName: "Chinese"
+    # contentDir: content/english
+    weight: 1
+    profileMode:
+      enabled: true
+      title: 合抱之木 生于毫末
+      imageUrl: "dog.jpg"
+      imageTitle:
+      imageWidth: 150
+      imageHeight: 150
+      buttons:
+        - name: 🖥️技术
+          url: posts/tech
+        - name: 📖阅读
+          url: posts/read
+        - name: 🌏生活
+          url: posts/life
+    menu:
+      main:
+        - identifier: search
+          name: 🔍搜索
+          url: search
+          weight: 1
+        - identifier: home
+          name: 🏠主页
+          url: /
+          weight: 2
+        - identifier: tags
+          name: 🔖标签
+          url: tags
+          weight: 40
+        - identifier: archives
+          name: ⏱️ 时间轴
+          url: archives/
+          weight: 20
+        - identifier: about
+          name: 🌟关于
+          url: about
+          weight: 50
 
 outputs:
-    home:
-        - HTML
-        - RSS
-        - JSON
+  home:
+    - HTML
+    - RSS
+    - JSON
 
 params:
-    env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    author: xdrr
-  
-    defaultTheme: light  # defaultTheme: light or  dark 
-    disableThemeToggle: false
-    DateFormat: "2006-01-02"
-    ShowReadingTime: true
-    # disableSpecialistPost: true
-    displayFullLangName: true
-    ShowPostNavLinks: true
-    ShowBreadCrumbs: true
-    ShowCodeCopyButtons: true
-    hideFooter: false # 隐藏页脚
-    ShowWordCounts: true
-    VisitCount: true
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  author: xdrr
 
-    ShowLastMod: true #显示文章更新时间
+  defaultTheme: light # defaultTheme: light or  dark
+  disableThemeToggle: false
+  DateFormat: "2006-01-02"
+  ShowReadingTime: true
+  # disableSpecialistPost: true
+  displayFullLangName: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  hideFooter: false # 隐藏页脚
+  ShowWordCounts: true
+  VisitCount: true
 
-    comments: true
-    
-    socialIcons:
-        - name: github
-          url: "https://github.com/xxrBear"
-        - name: email
-          url: "mailto:xxrBear@gmail.com"
-        - name: RSS
-          url: "index.xml"
+  ShowLastMod: true #显示文章更新时间
 
-    assets:
-        favicon: "dog.png"
+  comments: true
 
-    # cover:
-    #     hidden: true # hide everywhere but not in structured data
-    #     hiddenInList: true # hide on list pages and home
-    #     hiddenInSingle: true # hide on single page
+  socialIcons:
+    - name: github
+      url: "https://github.com/xxrBear"
+    - name: email
+      url: "mailto:xxrBear@gmail.com"
+    - name: RSS
+      url: "index.xml"
 
-    fuseOpts: # 搜索配置
-      isCaseSensitive: true
-      shouldSort: true
-      location: 0
-      distance: 1000
-      threshold: 0.4
-      minMatchCharLength: 0
-      keys: [ "title", "permalink", "summary" ]
+  assets:
+    favicon: "dog.png"
 
-    twikoo:
-      version: 1.4.11
+  # cover:
+  #     hidden: true # hide everywhere but not in structured data
+  #     hiddenInList: true # hide on list pages and home
+  #     hiddenInSingle: true # hide on single page
+
+  fuseOpts: # 搜索配置
+    isCaseSensitive: true
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary"]
+
+  twikoo:
+    version: 1.4.11
 
 taxonomies:
   category: categories
@@ -133,14 +133,14 @@ taxonomies:
   series: series
 
 markup:
-    goldmark:
-        renderer:
-            unsafe: true # HUGO 默认转义 Markdown 文件中的 HTML 代码，如需开启的话
-    highlight:
-        # anchorLineNos: true
-        codeFences: true  
-        guessSyntax: true
-        lineNos: true
-        # noClasses: false
-        # style: monokai
-        style: darcula
+  goldmark:
+    renderer:
+      unsafe: true # HUGO 默认转义 Markdown 文件中的 HTML 代码，如需开启的话
+  highlight:
+    # anchorLineNos: true
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    # noClasses: false
+    # style: monokai
+    style: darcula
