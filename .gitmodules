@@ -1,3 +1,4 @@
 [submodule "themes/hugo-PaperMod"]
 	path = themes/hugo-PaperMod
 	url = https://github.com/adityatelange/hugo-PaperMod.git
+  	branch = v7.0  # 指定要使用的版本
