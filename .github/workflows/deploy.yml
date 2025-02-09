@@ -14,20 +14,19 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: true # 使 Git Submodules 可用
-          fetch-depth: 0 # 获取完整历史，防止子模块更新失败
 
       - name: 更新 Git Submodules 并切换到指定 Tag
         run: |
           git submodule update --init --recursive --remote
           cd themes/hugo-PaperMod
           git fetch --tags
-          git checkout tags/v8.0
+          git checkout tags/v7.0
           cd ../..
 
       - name: 安装 Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.121.1" # 指定 Hugo 版本
+          hugo-version: "0.119.0" # 指定 Hugo 版本
           extended: true # 如果需要 SCSS/SASS 支持
 
       - name: 生成静态文件
