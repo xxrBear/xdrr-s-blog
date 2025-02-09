@@ -1,4 +1,3 @@
-workflows
 name: Deploy My Blog to Tencent Cloud Lighthouse 🚀
 
 on:
