@@ -12,6 +12,14 @@ jobs:
     steps:
       - name: 检出代码
         uses: actions/checkout@v3
+        with:
+          submodules: true # 使 Git Submodules 可用
+          fetch-depth: 0 # 获取完整历史，防止子模块更新失败
+
+      - name: 更新 Git Submodules
+        run: |
+          git submodule init
+          git submodule update --recursive --remote
 
       - name: 安装 Hugo
         uses: peaceiris/actions-hugo@v2
