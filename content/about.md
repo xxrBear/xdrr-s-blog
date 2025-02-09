@@ -1,22 +1,9 @@
 ---
 title: "about"
-layout: about
-hidemeta: true
-draft: false # 是否为草稿
-comments: true
-reward: false
-showToc: false # 显示目录
-TocOpen: false # 自动展开目录
-disableShare: true # 底部不显示分享栏
-showbreadcrumbs: false
-cover:
-    image: ""
-    caption: ""
-    alt: ""
-    relative: false
+layout: "about"
+# description: "test"
 ---
 
-## Hi~
-
-+ 白日梦想家
-+ Python攻城狮
+- 我是熊大如如
+- 白日梦想家
+- Python 攻城狮

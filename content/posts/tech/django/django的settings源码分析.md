@@ -3,12 +3,12 @@ title: "Django如何从settings中获取属性值"
 date: 2024-03-29T13:58:00+08:00
 lastmod: 2024-03-29T13:58:00+08:00
 author: ["熊大如如"]
-keywords: 
-- 
+keywords:
+  -
 categories: # 分类
-- # 在这儿写分类
+  -  # 在这儿写分类
 tags: # 标签
-- "django"
+  - "django"
 description: ""
 weight:
 slug: ""
@@ -21,53 +21,55 @@ hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等
 disableShare: true # 底部不显示分享栏
 showbreadcrumbs: true #顶部显示路径
 cover:
-    image: "https://cdn.jsdelivr.net/gh/xxrBear/image/202403291354659.jpg"  # 文章的图片
+  image: "https://cdn.jsdelivr.net/gh/xxrBear/image/202403291354659.jpg" # 文章的图片
 ---
 
 ### 1.配置类的继承关系
+
 <div>
 <img src="https://cdn.jsdelivr.net/gh/xxrBear/image/202403291342737.png" alt="example" style="width: 180px; height: auto;">
 </div>
 
 `LazyObject`为顶级父类，`LazySettings`继承他。`Settings`类被`LazySettings`类所包裹。
 
-### 2.Settings类的作用
-[Settings源码](https://github.com/xxrBear/django-chinese-annotation/blob/master/django/conf/__init__.py)
+### 2.Settings 类的作用
 
-查看Settings类源码，发现他接收一个变量 `settings_module`，先将 `global_settings` 的所有值设置为自己的实例属性，然后再将 `settings_module`的变量设置为实例属性。
+[Settings 源码](https://github.com/xxrBear/django-chinese-annotation/blob/master/django/conf/__init__.py)
+
+查看 Settings 类源码，发现他接收一个变量 `settings_module`，先将 `global_settings` 的所有值设置为自己的实例属性，然后再将 `settings_module`的变量设置为实例属性。
 
 当`settings_module`与`global_settings`的变量名重复时，以`settings_module`变量为主。
 
 ### 3. 特殊方法
-在了解`LazySettings`类的作用之前，我们要先明白__dict__方法和__getattr__方法的作用。
 
-简单来说，__dict__方法记录着类的属性字典。当使用`.`运算符时，首先会从类的属性字典里取值，即：
+在了解`LazySettings`类的作用之前，我们要先明白**dict**方法和**getattr**方法的作用。
 
+简单来说，**dict**方法记录着类的属性字典。当使用`.`运算符时，首先会从类的属性字典里取值，即：
 
     self.xxx取得 self.__dict__['xxx']的值
 
-
-当__dict__没有取到属性值时会运行到__getattr__方法内取属性值。
+当**dict**没有取到属性值时会运行到**getattr**方法内取属性值。
 
 举例：
 
     class Animal:
         def __getattr__(self, attr):
             return 'xxx'
-    
+
     a = Animal()
     a.xxx
-    
+
     'xxx'
 
-### 4.LazySettings类的作用
-[LazySettings源码](https://github.com/xxrBear/django-chinese-annotation/blob/master/django/conf/__init__.py)
+### 4.LazySettings 类的作用
+
+[LazySettings 源码](https://github.com/xxrBear/django-chinese-annotation/blob/master/django/conf/__init__.py)
 
 查看`LazySettings`的`_setup`方法，他将`self._wrapped`设置为`Settings`类实例。前面说了，`Settings`类里面有系统和自定义的所有的变量。所以当我们从`LazySettings`中获取属性时，会走到`LazySettings`的`__getattr__`方法中。
 
 查看一下这个方法，你会发现，他从`self._wrapped`中获取属性，也就是从`Settings`类中获取属性，然后会将属性写入`__dict__`方法中，也就是说，下次获取属性会直接从`LazySettings`类的`__dict__`中直接获取属性，避免了每次加载配置文件，减少了内存开销。
 
-### 5.Django为什么从LazySettings中获取属性
+### 5.Django 为什么从 LazySettings 中获取属性
 
 Django 使用 LazySettings 类来延迟加载设置属性的值的主要原因是为了在设置加载过程中提供更大的灵活性和可定制性。
 
@@ -80,5 +82,5 @@ Django 使用 LazySettings 类来延迟加载设置属性的值的主要原因�
 总的来说，使用 LazySettings 类可以提供更灵活和可定制的设置加载机制，使得 Django 更适应不同的应用场景和需求。
 
 ### 6.声明
-如有错误或不准确请指正，感谢！
 
+如有错误或不准确请指正，感谢！

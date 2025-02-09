@@ -64,7 +64,7 @@ languages:
           url: tags
           weight: 40
         - identifier: archives
-          name: ⏱️ 时间轴
+          name: ⏱️时间轴
           url: archives/
           weight: 20
         - identifier: about
@@ -140,7 +140,7 @@ markup:
     # anchorLineNos: true
     codeFences: true
     guessSyntax: true
-    lineNos: true
+    lineNos: false # 关闭代码行行号显示
     # noClasses: false
     # style: monokai
     style: darcula
