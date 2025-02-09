@@ -24,7 +24,7 @@ jobs:
       - name: 安装 Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.121.1" # 指定 Hugo 版本
+          hugo-version: "0.125.7" # 指定 Hugo 版本
           extended: true # 如果需要 SCSS/SASS 支持
 
       - name: 生成静态文件
