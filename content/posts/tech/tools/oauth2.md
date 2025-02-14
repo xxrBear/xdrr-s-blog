@@ -1,5 +1,5 @@
 ---
-title: "Oauth2 入门"
+title: "Oauth2 认证流程入门"
 date: 2025-02-14T20:04:56+08:00
 lastmod: 2025-02-14T20:04:56+08:00
 author: ["熊大如如"]
@@ -8,7 +8,7 @@ tags: # 标签
 description: ""
 weight:
 slug: ""
-summary: "OAuth2 是一种行业标准的授权协议，包含一系列流程和标准。即授权第三方应用，获取用户数据。"
+summary: "Oauth2 认证流程入门"
 draft: false # 是否为草稿
 mermaid: true #是否开启mermaid
 showToc: true # 显示目录
