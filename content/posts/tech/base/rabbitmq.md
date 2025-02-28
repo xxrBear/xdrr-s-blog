@@ -96,7 +96,7 @@ docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:4.0-man
 
 简化图
 
-![](https://cdn.nlark.com/yuque/0/2025/png/21550362/1740717526108-2241564c-2d4a-4e71-93d7-f07364aeb87e.png)
+![](https://cdn.jsdelivr.net/gh/xxrBear/image//Hugo/202502281313051.png)
 
 生产者生产消息，推送到交换机中，交换机路由到队列，消费者消费。
 
