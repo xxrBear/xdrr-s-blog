@@ -17,7 +17,7 @@ hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等
 disableShare: true # 底部不显示分享栏
 showbreadcrumbs: true #顶部显示路径
 cover:
-  image: "" # 文章的图片
+  image: "https://cdn.jsdelivr.net/gh/xxrBear/image//Hugo/202503071224472.jpg" # 文章的图片
 ---
 
 ## 一、简介
