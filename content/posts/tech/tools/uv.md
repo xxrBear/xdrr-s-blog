@@ -26,7 +26,7 @@ cover:
 
 ## 简介
 
-一个用 Rust 写的 Python 包和项目管理器。
+一个用 Rust 写的 Python 包和项目管理器
 
 先看它自己怎么吹的~
 
@@ -50,17 +50,7 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 
 ## 基本使用
 
-### 包管理
-
-```shell
-# 添加包
-uv add requests
-
-# 移除包
-uv remove requests
-```
-
-### 管理不同版本 Python
+### 管理 Python
 
 ```shell
 # 寻找当前可用python解释器
@@ -81,6 +71,53 @@ uv python pin 3.13
 # 安装虚拟环境，默认名字 .venv
 uv venv --python 3.11
 ```
+
+### 依赖管理
+
+```shell
+# 添加依赖
+uv add requests
+
+# 移除依赖
+uv remove requests
+
+# 同步依赖
+uv sync
+
+# 安装依赖：如果 requirements.txt 或 pyproject.toml 中定义了新依赖，uv sync 会安装它们
+# 卸载多余依赖：如果当前环境中存在未在 requirements.txt 或 pyproject.toml 中定义的依赖，
+# uv sync 会自动删除它们，以保持环境的干净
+```
+
+### 运行命令
+
+`uv run` 命令的作用是在 uv 管理的虚拟环境中运行命令
+
+`uv run` 的主要功能
+
+1. 自动激活虚拟环境：在 `uv venv` 创建的环境中执行命令，而不需要手动 `source venv/bin/activate`
+2. 执行 Python 脚本：可以直接运行 Python 相关命令，如 `python`、`pytest`、`flask run` 等
+3. 运行任意终端命令：不仅限于 Python，还可以运行 `bash`、`sh` 等
+
+> 即，uv run 的作用是激活当前 uv 项目的虚拟环境
+
+### 运行二进制文件
+
+`uvx` 的作用是在 UV 虚拟环境中运行可执行文件，相当于 `uv run`，但专门用于运行可执行二进制文件
+
+```shell
+uvx black .
+
+uvx ruff check .
+
+uvx mypy my_script.py
+```
+
+什么时候用 `uvx`？
+
+- 运行已安装的 CLI 工具（`black`、`ruff`、`mypy`、`pyright`）
+- 确保使用 UV 虚拟环境中的二进制文件，而不是系统全局版本
+- 在 CI/CD 或 Docker 中执行格式化、静态检查等任务
 
 ## 项目结构
 
