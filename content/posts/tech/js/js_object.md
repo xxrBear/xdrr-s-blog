@@ -1,0 +1,425 @@
+---
+title: "浅谈 JavaScript 对象：属性、方法与创建模式"
+date: 2025-03-13T20:30:06+08:00
+lastmod: 2025-03-13T20:30:06+08:00
+author: ["熊大如如"]
+tags: # 标签
+  - "javascript"
+description: ""
+weight:
+slug: ""
+summary: "浅谈 JavaScript 对象：属性、方法与创建模式, 对应JavaScript高级程序设计第四版第八章一二章节"
+draft: false # 是否为草稿
+mermaid: true #是否开启mermaid
+showToc: true # 显示目录
+TocOpen: true # 自动展开目录
+hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等
+disableShare: true # 底部不显示分享栏
+showbreadcrumbs: true #顶部显示路径
+cover:
+  image: "https://cdn.jsdelivr.net/gh/xxrBear/image//Hugo/202502191717176.png" # 文章的图片
+---
+
+## 一、简介
+
+ECMA-262 将对象定义为一组属性的无序集合，可以把 ECMAScript 的对象想象成一张散列表，其中的内容就是一组键值对。
+
+## 二、理解对象
+
+### 2.1 字面量创建
+
+```javascript
+let person = {
+  name: "Nicholas",
+  age: 29,
+  job: "Software Engineer",
+  sayName() {
+    console.log(this.name);
+  },
+};
+```
+
+### 2.2 构造函数创建
+
+```javascript
+let person = new Object();
+person.name = "Nicholas";
+person.age = 29;
+person.job = "Software Engineer";
+person.sayName = function () {
+  console.log(this.name);
+};
+```
+
+## 三、对象的属性
+
+属性分两种：数据属性和访问器属性
+
+### 3.1 数据属性
+
+数据属性包含一个保存数据值的位置。值会从这个位置读取，也会写入到这个位置。数据属性有 4 个特性描述它们的行为
+
+---
+
+`[[Value]]`：属性的实际值，读取和写入属性值的位置，这个特性的默认值是 `undefined`
+
+---
+
+`[[Writable]]`：表示属性的值是否可以被修改。默认情况下，所有直接定义在对象上的属性的这个特性都是 `true`
+
+---
+
+`[[Enumerable]]`：表示属性是否可以在 `for-in` 循环返回。默认情况下，所有直接定义在对象上的属性的这个特性都是 `true`
+
+---
+
+`[[Configurable]]`：表示属性是否可以通过 `delete` 删除并重新定义，是否可以修改它的特性，以及是否可以把它改为访问器属性。默认情况下，所有直接定义在对象上的属性的这个特性都是 `true`
+
+---
+
+**示例**
+
+定义不可修改属性
+
+```javascript
+let person = {};
+
+Object.defineProperty(person, "name", {
+  value: "John",
+  writable: false, // 使得属性不可修改
+});
+
+console.log(person.name); // 输出 "John"
+
+person.name = "Jane"; // 尝试修改
+console.log(person.name); // 仍然输出 "John"
+```
+
+设置不可配置的属性
+
+```javascript
+let person = {};
+
+Object.defineProperty(person, "name", {
+  value: "John",
+  configurable: false, // 不可重新定义或删除
+});
+
+console.log(person.name); // 输出 "John"
+
+// 尝试删除属性
+delete person.name; // 删除失败
+
+console.log(person.name); // 仍然输出 "John"
+
+// 尝试重新定义属性（例如，改变其值或修改其他特性）
+Object.defineProperty(person, "name", {
+  value: "Jane", // 这里会抛出 TypeError 错误，因为配置项是不可更改的
+});
+```
+
+**总结**
+
+大多数情况下，我们可能都不需要 Object.defineProperty() 提供的这些强大的设置，但要理解 JavaScript 对象，就要理解这些概念
+
+### 3.2 访问器属性
+
+访问器属性不包含数据值吗。相反，它们包含一个获取函数和一个设置函数，不过这两个函数不是必需的。
+
+**示例**
+
+```javascript
+let person = {
+  firstName: "John",
+  lastName: "Doe",
+
+  // 定义访问器属性 'fullName'
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+
+  set fullName(name) {
+    const parts = name.split(" ");
+    this.firstName = parts[0];
+    this.lastName = parts[1];
+  },
+};
+
+console.log(person.fullName); // 输出 "John Doe"
+
+// 使用 setter 修改属性
+person.fullName = "Jane Smith";
+
+console.log(person.firstName); // 输出 "Jane"
+console.log(person.lastName); // 输出 "Smith"
+console.log(person.fullName); // 输出 "Jane Smith"
+```
+
+### 3.3 读取属性的特性
+
+在 JavaScript 中，可以使用 `Object.getOwnPropertyDescriptor()` 方法来读取对象属性的特性（如 `writable`、`enumerable`、`configurable` 和 `value`）。
+
+```javascript
+const obj = {
+  name: "Alice",
+};
+
+// 定义一个不可写的属性
+Object.defineProperty(obj, "age", {
+  value: 25,
+  writable: false, // 不能修改
+  enumerable: true, // 可枚举
+  configurable: true, // 可重新配置
+});
+
+console.log(Object.getOwnPropertyDescriptor(obj, "name"));
+// 输出: { value: 'Alice', writable: true, enumerable: true, configurable: true }
+
+console.log(Object.getOwnPropertyDescriptor(obj, "age"));
+// 输出: { value: 25, writable: false, enumerable: true, configurable: true }
+
+// 尝试修改 `age`
+obj.age = 30;
+console.log(obj.age); // 仍然是 25，因为 `writable: false`
+```
+
+### 3.4 合并对象
+
+ES6 新增方法 `Object.assign`方法用于将一个或多个源对象的可枚举属性复制到目标对象，并返回目标对象。
+
+```javascript
+const target = { a: 1, b: 2 };
+const source = { b: 4, c: 5 };
+
+const result = Object.assign(target, source);
+
+console.log(result); // { a: 1, b: 4, c: 5 }
+console.log(target); // { a: 1, b: 4, c: 5 } (target 被修改)
+```
+
+`Object.assign()` 只是 浅拷贝，如果属性是对象，引用会被复制，而不会创建新的对象。
+
+```javascript
+const obj1 = { a: 1, b: { x: 10 } };
+const obj2 = Object.assign({}, obj1);
+
+obj2.b.x = 99;
+
+console.log(obj1.b.x); // 99，原对象也被修改了
+```
+
+### 3.5 增强的对象语法
+
+ES6 为定义和操作对象新增了许多及其有用的语法糖特性。这些特性都没有改变现有引擎的行为，但极大地提升了处理对象的方便程度。
+
+#### 3.5.1 属性值简写
+
+简写属性名只要使用变量名，不用再写冒号，就会自动解释为同名的属性键。如果没有找到同名变量，就会报错。
+
+**示例**
+
+```javascript
+let name = "Matt";
+
+let person = {
+  name,
+};
+```
+
+#### 3.5.2 可计算属性
+
+直接上示例
+
+```javascript
+const key = "name";
+
+const person = {
+  [key]: "Alice",
+  age: 25,
+};
+
+console.log(person.name); // Alice
+
+// 还有
+const methodName = "sayHello";
+
+const obj = {
+  [methodName]() {
+    return "Hello!";
+  },
+};
+
+console.log(obj.sayHello()); // Hello!
+```
+
+#### 3.5.3 简写方法名
+
+```javascript
+let person = {
+  sayName(name) {
+    console.log(`My name is ${name}`);
+  },
+};
+```
+
+### 3.6 对象解构
+
+ES6 新增对象解构语法，可以在一条语句中使用嵌套数据实现一个或多个赋值操作。简单来说，对象解构就是使用与对象匹配的结构来实现对象属性赋值。
+
+```javascript
+let person = {
+  name: "Matt",
+  age: 22,
+};
+
+let { name, age } = person;
+
+console.log(name);
+console.log(age);
+```
+
+## 四、创建对象
+
+### 4.1 工厂模式
+
+```javascript
+function createPerson(name, age) {
+  return {
+    name,
+    age,
+    sayHello() {
+      console.log(`Hi, I'm ${this.name}!`);
+    },
+  };
+}
+
+const person1 = createPerson("Alice", 25);
+const person2 = createPerson("Bob", 30);
+
+console.log(person1.name); // Alice
+person2.sayHello(); // Hi, I'm Bob!
+```
+
+### 4.2 构造函数模式
+
+```javascript
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+
+  this.sayHello = function () {
+    console.log(`Hi, I'm ${this.name}, and I'm ${this.age} years old.`);
+  };
+}
+
+const person1 = new Person("Alice", 25);
+const person2 = new Person("Bob", 30);
+
+console.log(person1.name); // Alice
+person2.sayHello(); // Hi, I'm Bob, and I'm 30 years old.
+```
+
+构造函数的缺点：
+
+构造函数的主要问题是，其定义的方法会在每个实例上都创建一遍
+
+**例子**
+
+```javascript
+function Person(name, age, job) {
+  this.name = name;
+  this.age = age;
+  this.job = job;
+  this.sayName = new Function("console.log(this.name)"); // 逻辑等价
+}
+```
+
+### 4.3 原型模式
+
+#### 4.3.1 简介
+
+在 `JavaScript` 中，每个函数都有 `prototype` 属性，这个属性是一个对象，这个对象用于存放可以被实例共享的方法和属性。
+
+```javascript
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.sayHello = function () {
+  console.log(`Hi, I'm ${this.name}`);
+};
+
+const p1 = new Person("Alice");
+const p2 = new Person("Bob");
+
+p1.sayHello(); // Hi, I'm Alice
+p2.sayHello(); // Hi, I'm Bob
+
+console.log(p1.sayHello === p2.sayHello); // true（共享同一个方法）
+```
+
+两个实例都继承 `sayHello`方法。
+
+#### 4.3.2 理解原型
+
+无论何时，只要创建一个函数，就会按照特定的规则为这个函数创建一个 `prototype` 属性，指向原型对象。默认情况下，所有原型对象自动获得一个名为 `constructor` 的属性，指回与之关联的构造函数。即
+
+```javascript
+Person.prototype.construcor 指向 Person
+```
+
+在自定义构造函数时，原型对象只会获得 `constructor` 属性，其他的方法都继承于 `Object`
+
+```javascript
+function Person(name) {
+  this.name = name;
+}
+
+console.log(Person.prototype);
+// 默认只有 `constructor`，没有其他方法
+console.log(Person.prototype.constructor === Person); // true
+
+// `Person.prototype` 继承自 `Object.prototype`
+console.log(Person.prototype.__proto__ === Object.prototype); // true
+console.log(typeof Person.prototype.toString); // function（来自 Object.prototype）
+```
+
+在 `Firefox`、`Safari`、`Chrome`、`Edge`浏览器中，会在每个对象上暴露 `__proto__` 属性，通过这个属性可以访问对象的原型。
+
+```javascript
+const obj = { name: "Alice" };
+console.log(obj.__proto__ === Object.prototype); // true
+console.log(obj.toString === Object.prototype.toString); // true（继承自 Object）
+```
+
+关键理解一点：**实例与构造函数原型之间有直接的联系，实例与构造函数之间没有**
+
+#### 4.3.3 判断属性
+
+`hasOwnProperty` 可以判断是实例属性还是原型属性，实例返回 True 原型返回 False
+
+### 4.4 对象迭代
+
+ES2017 新增 `Object.values`和`Object.entries`两个方法
+
+前者返回对象值，后者返回对象键值对。
+
+```javascript
+const person = {
+  name: "Alice",
+  age: 25,
+  city: "Shanghai",
+};
+
+console.log(Object.values(person));
+// 输出: ["Alice", 25, "Shanghai"]
+
+const person = {
+  name: "Alice",
+  age: 25,
+  city: "Shanghai",
+};
+
+console.log(Object.entries(person));
+// 输出: [["name", "Alice"], ["age", 25], ["city", "Shanghai"]]
+```
