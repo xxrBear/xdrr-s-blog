@@ -78,7 +78,7 @@ cd test-alembic && uv init
 
 如果你不知道 uv 是什么？推荐你看看博主的这篇文章哟~
 
-[Alembic 实战指南：快速入门到 FastAPI 集成](https://www.xxrbear.cn/posts/tech/tools/alembic/)
+[uv 入门指南](https://www.xxrbear.cn/posts/tech/tools/uv/)
 
 - 增加项目依赖项
 
