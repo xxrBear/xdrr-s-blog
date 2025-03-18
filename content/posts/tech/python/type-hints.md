@@ -164,7 +164,7 @@ uv add mypy
 
 uv 是一个超快的 Python 包和解释器管理工具，如果你不了解，可以看下面的这篇博文，或者直接使用 `pip`安装也可以
 
-[uv](https://www.baidu.com)
+[uv 入门指南](https://www.xxrbear.cn/posts/tech/tools/uv/)
 
 ### 示例
 
