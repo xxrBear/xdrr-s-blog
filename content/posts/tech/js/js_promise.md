@@ -21,7 +21,7 @@ hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等
 disableShare: true # 底部不显示分享栏
 showbreadcrumbs: true #顶部显示路径
 cover:
-  image: "" # 文章的图片
+  image: "https://cdn.jsdelivr.net/gh/xxrBear/image//Hugo/202502191717176.png" # 文章的图片
 ---
 
 ## 简介
@@ -180,7 +180,7 @@ fetchData
 
 ### then 处理成功
 
-`then()` 方法接收一个回调，在 `Promise` **成功（resolved）**时调用
+`then()` 方法接收一个回调，在 `Promise` **成功（resolved）** 时调用
 
 ```javascript
 let p = new Promise((resolve) => resolve("成功的数据"));
@@ -189,7 +189,7 @@ p.then((result) => console.log(result)); // "成功的数据"
 
 ### catch 处理失败
 
-`catch()` 方法接收一个回调，在 `Promise` **失败（rejected）**时调用
+`catch()` 方法接收一个回调，在 `Promise` **失败（rejected）** 时调用
 
 ```javascript
 let p = new Promise((_, reject) => reject("出错了"));
