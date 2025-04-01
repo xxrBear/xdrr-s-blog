@@ -4,11 +4,11 @@ date: {{ .Date }}
 lastmod: {{ .Date }}
 author: ["熊大如如"]
 keywords: 
-- 
+  - 
 categories: # 分类
-- # 在这儿写分类
+  - # 在这儿写分类
 tags: # 标签
--
+  -
 description: ""
 weight:
 slug: ""
