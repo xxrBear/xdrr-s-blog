@@ -6,4 +6,6 @@ layout: "about"
 
 - 我是熊大如如
 - 白日梦想家
-- Python 攻城狮
+- Pythonista
+- JavaScript Enthusiast
+- Rusting...
