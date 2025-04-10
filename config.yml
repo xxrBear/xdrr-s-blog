@@ -47,7 +47,7 @@ languages:
           url: posts/tech
         - name: 📖阅读
           url: posts/read
-        - name: 🌏生活
+        - name: 🌿生活
           url: posts/life
     menu:
       main:
