@@ -62,7 +62,7 @@ for i in gen:
 
 ### 生成器的高级用法
 
-### `send()`：将值传入生成器
+`send()`：将值传入生成器
 
 ```python
 def custom_gen():
@@ -80,7 +80,7 @@ print(g.send("你好")) # 输出：你刚才说的是：你好
 TypeError: can't send non-None value to a just-started generator
 ```
 
-### `throw()`：主动在 `yield` 处抛出异常
+`throw()`：主动在 `yield` 处抛出异常
 
 ```python
 def example():
@@ -94,7 +94,7 @@ next(g)
 g.throw(ValueError)
 ```
 
-### `close()`：停止生成器执行
+`close()`：停止生成器执行
 
 ```python
 def mygen():
