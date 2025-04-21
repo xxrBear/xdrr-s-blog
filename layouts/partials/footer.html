@@ -1,3 +1,12 @@
+<script src="https://utteranc.es/client.js"
+        repo="xxrBear/blog-comment"
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        id="utteranc"
+        async>
+</script>
+
 {{- if not (.Param "hideFooter") }}
 <footer class="footer">
     {{- if site.Copyright }}
@@ -81,6 +90,14 @@
             document.body.classList.add('dark');
             localStorage.setItem("pref-theme", 'dark');
         }
+
+        const theme = document.body.className.includes("dark") ? "github-dark": "github-light";
+        const message = {
+            type: "set-theme",
+            theme: theme,
+            };
+        const utteranc = document.querySelector(".utterances-frame");
+        utteranc.contentWindow.postMessage(message, "https://utteranc.es");
     })
 
 </script>
