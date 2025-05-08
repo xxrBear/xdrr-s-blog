@@ -1,5 +1,5 @@
 ---
-title: "Java Exception"
+title: "Java 异常"
 date: 2025-05-08T20:10:52+08:00
 lastmod: 2025-05-08T20:10:52+08:00
 author: ["熊大如如"]
@@ -17,12 +17,12 @@ hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等
 disableShare: true # 底部不显示分享栏
 showbreadcrumbs: true #顶部显示路径
 cover:
-  image: "" # 文章的图片
+  image: "https://cdn.jsdelivr.net/gh/xxrBear/image//Hugo/202505062222488.png" # 文章的图片
 ---
 
 ## Java 异常的体系结构
 
-```java
+```
 java.lang.Throwable
 ├── Error（严重错误，程序无法处理）
 │   ├── OutOfMemoryError
