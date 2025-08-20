@@ -14,9 +14,6 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-#googleAnalytics: UA-123-45 # 谷歌统计
-# Copyright: Sulv
-
 paginate: 10 # 首页每页显示的文章数
 
 minify:
@@ -25,15 +22,10 @@ minify:
 
 permalinks:
   post: "/:title/"
-  # post: "/:year/:month/:day/:title/"
-
-# defaultContentLanguage: en # 最顶部首先展示的语言页面
-# defaultContentLanguageInSubdir: true
 
 languages:
   zh:
     languageName: "Chinese"
-    # contentDir: content/english
     weight: 1
     profileMode:
       enabled: true
@@ -80,7 +72,7 @@ outputs:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  author: xdrr
+  author: 熊大如如
 
   defaultTheme: light # defaultTheme: light or  dark
   disableThemeToggle: false
@@ -109,11 +101,6 @@ params:
 
   assets:
     favicon: "dog.png"
-
-  # cover:
-  #     hidden: true # hide everywhere but not in structured data
-  #     hiddenInList: true # hide on list pages and home
-  #     hiddenInSingle: true # hide on single page
 
   fuseOpts: # 搜索配置
     isCaseSensitive: true
