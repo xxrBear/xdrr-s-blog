@@ -2,7 +2,7 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 lastmod: {{ .Date }}
-author: ["熊大如如"]
+author: {{ .Site.Params.author }}
 keywords: 
   - 
 categories: # 分类
