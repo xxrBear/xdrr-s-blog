@@ -11,7 +11,7 @@
     </summary>
 
 ```shell
-brew install hugo
+brew install hugo@0.99.1
 ```
 
 </details>
@@ -24,7 +24,7 @@ windows
 ```shell
 iwr -useb get.scoop.sh | iex
 
-scoop install hugo-extended
+scoop install hugo-extended@0.99.1
 ```
 
 </details>
@@ -35,7 +35,7 @@ ubuntu
 </summary>
 
 ```shell
-sudo apt install hugo
+sudo apt install hugo=0.99.1
 ```
 
 </details>
