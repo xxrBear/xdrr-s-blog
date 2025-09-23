@@ -39,7 +39,7 @@ languages:
           url: posts/tech
         - name: 📖阅读
           url: posts/read
-        - name: 🌿生活
+        - name: 🖊️随笔
           url: posts/life
     menu:
       main:
