@@ -23,6 +23,10 @@ jobs:
           git checkout tags/v7.0
           cd ../..
 
+      - name: 拉取文章内容
+        run: |
+          git clone https://github.com/xxrBear/blog-posts.git content/posts
+
       - name: 安装 Hugo
         uses: peaceiris/actions-hugo@v2
         with:
